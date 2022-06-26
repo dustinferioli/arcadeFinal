@@ -71,7 +71,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* pointer-events: auto; */
+    /* pointer-events:all; */
 }
 
 .tile:nth-child(3n+2) {
