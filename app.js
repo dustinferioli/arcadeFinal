@@ -115,7 +115,25 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
         gameTie();
-    
+
+        function playCPU (){
+            if (currentPlayer === xPlayer){
+                event.target.innerHTML = 'x';
+                event.target.style.color = 'white';
+                playerTurn.innerHTML = (`It is the CPU's turn.`);
+                event.target.style.cursor = 'not-allowed';
+                tttBoard.splice(tileValue, 1, 'x')
+                currentPlayer = oPlayer;
+                turnCount++;
+                console.log(tttBoard);
+                // event.target.readOnly = 'true';
+                // event.target.style.pointerEvents = 'none';
+            } 
+        }
+        
+        let cpuButton = document.getElementById('CPU');
+        cpuButton.addEventListener('click', playCPU);
+        
     }
     board.addEventListener('click', ticTacToeFunc);
 
@@ -135,36 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resetButton.addEventListener('click', resetGame);
     resetGame();
 
-    let cpuButton = document.getElementById('CPU');
     
-    function playCPU (event){
-        resetGame();
-        let tileValue = event.target.dataset.value
-        if (currentPlayer === xPlayer){
-            // event.target.innerHTML = 'x';
-            // event.target.style.color = 'white';
-            playerTurn.innerHTML = (`It is player O's turn.`);
-            event.target.style.cursor = 'not-allowed';
-            tttBoard.splice(tileValue, 1, 'x')
-            currentPlayer = oPlayer;
-            turnCount++;
-            console.log(tttBoard);
-        } else {
-            // target.innerText = 'o';
-            // target.style.color = 'white';
-            playerTurn.innerHTML = (`It is the CPU's turn.`);
-            for (i = 0; i <= tttBoard.length; i++){
-                if (tttBoard[i] == ''){
-                    tttBoard.splice(tileValue, 1, 'o');
-                }
-            }
-            currentPlayer = xPlayer;
-            turnCount++
-            console.log(tttBoard);
-            target.style.cursor = 'not-allowed';
-        }
-    }
-    cpuButton.addEventListener('click', playCPU);
 
 
 
