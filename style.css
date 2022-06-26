@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: 'Indie Flower', cursive;
+    background-color: black;
+    color: white;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    border-bottom: 3px solid white;
+}
+
+.title {
+    color: white;
+    font-size: 3rem;
+    margin-top: 1em;
+    text-align: center;
+}
+.form{
+    margin-top: 2rem;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.5em;
+}
+
+.playernames.label {
+    text-align: center;
+}
+
+.playernames.input {
+    font-family: 'Indie Flower', cursive;
+}
+
+#playerturn {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+#board-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-grow: 1;
+   overflow: hidden;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-sizing: border-box;
+    margin-top: 2rem;
+}
+
+.tile {
+    /* border: 2px solid white; */
+    min-width: 125px;
+    min-height: 125px;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* pointer-events: auto; */
+}
+
+.tile:nth-child(3n+2) {
+    border-left: 3px solid whitesmoke;
+    border-right: 3px solid whitesmoke;
+}
+
+.tile:nth-child(n+4):nth-child(-n+6) {
+    border-top: 3px solid whitesmoke;
+    border-bottom: 3px solid whitesmoke; 
+}
+
+#buttons  {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    font-size: 1.2rem;
+}
