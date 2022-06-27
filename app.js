@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let oName = document.getElementById('oname');
     
     let playerTurn = document.getElementById('playerturn');
-
+    playerTurn.innerHTML = `Place a tile to begin game. Player X goes first.`
+    
     // let winConds = [
     //     [0, 1, 2],
     //     [3, 4, 5],
@@ -57,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(tttBoard);
                 // event.target.readOnly = 'true';
                 // event.target.style.pointerEvents = 'none';
-                // event.style.pointerEvents = "none";
             } else {
                 event.target.innerText = 'o';
                 event.target.style.color = 'white';
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentPlayer = xPlayer;
                 turnCount++
                 console.log(tttBoard);
-                // event.target.style.cursor = 'not-allowed';
+                event.target.style.cursor = 'not-allowed';
             }
         }
         switchPlayers();
@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tttBoard[2] === 'x' && tttBoard[2] === tttBoard[5] && tttBoard[5] === tttBoard[8] || // column 3
             tttBoard[0] === 'x' && tttBoard[0] === tttBoard[4] && tttBoard[4] === tttBoard[8] || // diagonal 1
             tttBoard[2] === 'x' && tttBoard[2] === tttBoard[4] && tttBoard[4] === tttBoard[6]){ // diagonal 2
+                gameBoard.style.cursor = 'not-allowed';
                 gameBoard.style.pointerEvents = "none";
                 playerTurn.innerHTML = `${xName.value} wins!`;
                 // window.alert ('Player X wins!');
@@ -133,7 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
         gameBoard.style.pointerEvents = "auto";
         playerTurn.innerHTML = `Place a tile to begin game. Player X goes first.`
         create3x3Grid();
-
     }
     resetButton.addEventListener('click', resetGame);
     // resetGame();
@@ -162,28 +162,36 @@ document.addEventListener("DOMContentLoaded", () => {
     // playCPU();
 
 
-let cpuButton = document.getElementById('CPU');
-cpuButton.addEventListener('click', tttCPU);
+// let cpuButton = document.getElementById('CPU');
 
-function tttCPU(event){
-    let tileValue = event.target.dataset.value
+// function tttCPU(event){
+//     let tileValue = event.target.dataset.value
+//     let
+//     function switchCPUPlayers(){
+//         if (currentPlayer === xPlayer){
+//             event.target.innerHTML = 'x';
+//             event.target.style.color = 'white';
+//             playerTurn.innerHTML = (`It is player O's turn.`);
+//             event.target.style.cursor = 'not-allowed';
+//             tttBoard.splice(tileValue, 1, 'x');
+//             currentPlayer = oPlayer;
+//             turnCount++;
+//             console.log(tttBoard);
+//         } else (tile.innerText = ''){
+//             tile.forEach(function(tile)){
+//                 if (tile.innerText = ''){
+//                     tile.innerText = 'o';
+//                 }
+//             }
 
-    function switchPlayers(){
-        if (currentPlayer === xPlayer){
-            event.target.innerHTML = 'x';
-            event.target.style.color = 'white';
-            playerTurn.innerHTML = (`It is player O's turn.`);
-            event.target.style.cursor = 'not-allowed';
-            tttBoard.splice(tileValue, 1, 'x');
-            currentPlayer = oPlayer;
-            turnCount++;
-            console.log(tttBoard);
-        } else {
-            
-        }
-    }
-}
+//         }
+//     }
+//     switchCPUPlayers;
     
+// }
+// tttCPU();
+// cpuButton.addEventListener('click', tttCPU);
+
     
     
 
